@@ -1,0 +1,25 @@
+{
+  "name": "file-str-replace",
+  "version": "0.1.0",
+  "description": "standalone module to replace a string in a file",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/replace-in-file.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrzmyr/file-str-replace.git"
+  },
+  "keywords": [
+    "string",
+    "replace",
+    "file",
+    "regex"
+  ],
+  "author": "Moritz Meyer <m0ritz.m3yer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrzmyr/file-str-replace/issues"
+  },
+  "homepage": "https://github.com/mrzmyr/file-str-replace"
+}
