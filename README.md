@@ -16,7 +16,7 @@ $ npm install --save-dev file-str-replace
 var fileStrReplace = require('file-str-replace')
 
 fileStrReplace('example.txt', /[0-9]/g, '<3', function (newFileContent) {
-  // console.log(fileContent);
+  // console.log(newFileContent);
 });
 
 ```
