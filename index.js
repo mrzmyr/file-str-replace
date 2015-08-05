@@ -1,4 +1,4 @@
-var fs = require('fs')
+var fs = require('fs');
 
 function replace(file, pattern, replacement, callback) {
   fs.readFile(file, 'utf8', function (err,data) {
@@ -10,7 +10,7 @@ function replace(file, pattern, replacement, callback) {
 
     fs.writeFile(file, result, 'utf8', function (err) {
       if (err) {
-      	throw err;
+        throw err;
       }
 
       if(typeof(callback) == 'function') {
@@ -20,4 +20,14 @@ function replace(file, pattern, replacement, callback) {
   });
 }
 
-module.exports = replace;
+function replaceSync(file, pattern, replacement) {
+  var contents = fs.readFileSync(file, 'utf8')
+  var result = contents.replace(pattern, replacement);
+  fs.writeFileSync(file, result, 'utf8');
+  return result;
+}
+
+module.exports = {
+  replace: replace,
+  replaceSync: replaceSync
+};

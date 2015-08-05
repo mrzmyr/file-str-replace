@@ -1,6 +1,6 @@
 {
   "name": "file-str-replace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "standalone module to replace a string in a file",
   "main": "index.js",
   "scripts": {

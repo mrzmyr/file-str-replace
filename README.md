@@ -13,10 +13,12 @@ $ npm install --save-dev file-str-replace
 
 ```js
 
-var fileStrReplace = require('file-str-replace')
+var fileStr = require('file-str-replace');
 
-fileStrReplace('example.txt', /[0-9]/g, '<3', function (newFileContent) {
+fileStr.replace('example.txt', /[0-9]/g, '<3', function (newFileContent) {
   // console.log(newFileContent);
 });
+
+var newFileContent = fileStr.replaceSync('example.txt', /[0-9]/g, '<3');
 
 ```
