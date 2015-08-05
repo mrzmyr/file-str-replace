@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 function replace(file, pattern, replacement, callback) {
-  fs.readFile(file, 'utf8', function (err,data) {
+  fs.readFile(file, 'utf8', function (err, data) {
     if (err) {
       throw err;
     }

@@ -9,23 +9,24 @@ describe('file-str-replace module', function(){
 
   describe('replace', function () {
 
-    it('should replace correctly', function(done){
+    it('should replace correctly', function(done) {
       fileStr.replace(filename, /[0-9]{0,}e/g, '<3', function () {
-        var assetContent = fs.readFileSync(filename, 'utf8');
-        assert.equal('9cdfb439c<3<3307864c9167a15', assetContent);
-        done();
+        fs.readFile(filename, 'utf8', function (err, assetContent) {
+          assert.equal('9cdfb439c<3<3307864c9167a15', assetContent);
+          done();
+        });
       });
     });
 
-    it('should call the callback with correct value', function(done){
+    it('should call the callback with correct value', function(done) {
       fileStr.replace(filename, /[0-9]{0,}e/g, '<3', function (value) {
         assert.equal('9cdfb439c<3<3307864c9167a15', value);
         done();
       });
     });
 
-    afterEach(function () {
-      fs.writeFile(filename, resetValue, 'utf8');
+    afterEach(function (done) {
+      fs.writeFile(filename, resetValue, 'utf8', done);
     });
 
   });
@@ -38,13 +39,14 @@ describe('file-str-replace module', function(){
       assert.equal('9cdfb439c<3<3307864c9167a15', assetContent);
     });
 
-    it('should call the callback with correct value', function() {
+    it('should return correct result', function() {
       var result = fileStr.replaceSync(filename, /[0-9]{0,}e/g, '<3');
       assert.equal('9cdfb439c<3<3307864c9167a15', result);
     });
 
-    afterEach(function () {
-      fs.writeFile(filename, resetValue, 'utf8');
+    afterEach(function (done) {
+      fs.writeFile(filename, resetValue, 'utf8', done);
     });
-  })
-})
+
+  });
+});
